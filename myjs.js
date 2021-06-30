@@ -1,18 +1,20 @@
 let close = document.getElementsByClassName('close');
 for(let i=0;i<close.length;i++){    
     close[i].onclick = function(){        
-        let div = this.parentElement;        
+        let div = this.parentElement;
+        console.log(div.value);
         div.style.display = 'none';
     }
 }
 
-let selectItem = document.querySelector('ul');
+/* let selectItem = document.querySelector('ul');
 selectItem.addEventListener('click',function(e){
     if(e.target.tagName === 'LI'){
+        console.log((this).text());
         e.target.classList.toggle('done');
     }
 },false);
-
+ */
 
 function addTask(){
     let inputValue = document.getElementById('todo').value;
