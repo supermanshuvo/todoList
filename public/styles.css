@@ -73,3 +73,6 @@ ul li{
 ul li:hover {
     background: #ddd;
   }
+  p{
+      text-align: center;
+  }
