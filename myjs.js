@@ -5,33 +5,14 @@ for(let i=0;i<close.length;i++){
         div.style.display= 'none';
     }
 }
-
 let done = document.getElementsByClassName('done');
 for(let i=0;i<done.length;i++){    
     done[i].onclick = function(){        
         let div = this.parentElement;
         div.style.textDecoration= 'line-through';
+        div.style.backgroundColor='green';
     }
 }
-
-/* function getEventTarget(e){
-    e = e || window.event;
-    return e.target || e.srcElement;
-}
-let selectItem = document.getElementById('paddingWorkList');
-selectItem.onclick = function(event){
-    let target = getEventTarget(event);
-    console.log(target.innerHTML);
-} */
-/* let selectItem = document.querySelector('ul');
-selectItem.addEventListener('click',function(e){
-    if(e.target.tagName === 'LI'){
-        console.log((this).text());
-        e.target.classList.toggle('done');
-    }
-},false);
- */
-
 function addTask(){
     let inputValue = document.getElementById('todo').value;
     let li = document.createElement('li');
@@ -52,6 +33,7 @@ function addTask(){
         done[j].onclick=function(){
             let div = this.parentElement;
             div.style.textDecoration= 'line-through';
+            div.style.backgroundColor='green';
         }
     }
     let button = document.createElement('BUTTON');
