@@ -1,15 +1,17 @@
-
 let close = document.getElementsByClassName('close');
-console.log(close.value+' in close out for');
-for(let i=0;i<close.length;i++){
-    console.log(close[i].value+' in close out i');
-    close[i].onclick = function(){
-        console.log(close[i].value+' in close in i');
-        let div = this.parentElement;
-        console.log(div.value+' in div');
+for(let i=0;i<close.length;i++){    
+    close[i].onclick = function(){        
+        let div = this.parentElement;        
         div.style.display = 'none';
     }
 }
+
+let selectItem = document.querySelector('ul');
+selectItem.addEventListener('click',function(e){
+    if(e.target.tagName === 'LI'){
+        e.target.classList.toggle('done');
+    }
+},false);
 
 
 function addTask(){
@@ -19,8 +21,7 @@ function addTask(){
     li.appendChild(t);
     if(inputValue == ''){
         alert('Kindly Input something you need to do!');
-    }else{
-        // console.log(inputValue); Test input
+    }else{        
         document.getElementById('paddingWorkList').appendChild(li);
     }
     document.getElementById('todo').value = "";
