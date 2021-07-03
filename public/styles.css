@@ -52,6 +52,6 @@ p{
     background-color: #275c12;
     text-decoration: line-through;
 }
-.update{
+.update, .addWork{
     display: none;
 }

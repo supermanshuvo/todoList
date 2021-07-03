@@ -45,40 +45,42 @@ function showTask(){
     });
     workList.innerHTML = data;
 }
-
+let shortTimeStore;
 function editTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    let saveIndex = document.getElementById("saveindex");
     let updateTaskBtn = document.getElementById("update");
-    saveIndex = index;
     taskInput.value = taskObj[index]['task_name'];
-    addTaskBtn.style.display="none";
+    shortTimeStore = index;
+    addTaskBtn.className="addWork";
     updateTaskBtn.className='';
-
 }
 
 
 let updateTaskBtn = document.getElementById('update');
 updateTaskBtn.addEventListener("click", function(){
-    /* addTaskInputValue = taskInput.value;
+    addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
         alert('Enter something!');
     }else{
         let storage = localStorage.getItem('task');
-        if(storage == null){
-            taskObj = [];
-        }else{
-            taskObj = JSON.parse(storage);
+        let taskObj = JSON.parse(storage);
+        for(keys in taskObj[shortTimeStore]){
+            if(keys == 'task_name'){
+                taskObj[shortTimeStore].task_name = trimInput;
+                localStorage.setItem("task", JSON.stringify(taskObj));
+            }
         }
-        if()
-        taskObj.push({'task_name':trimInput,'completeStatus':false});
-        localStorage.setItem('task',JSON.stringify(taskObj));
+        /* console.log(shortTimeStore);
+        console.log(trimInput); */
+        /* taskObj.push({'task_name':trimInput,'completeStatus':false});
+        localStorage.setItem('task',JSON.stringify(taskObj)); */
+        updateTaskBtn.className='update';
+        addTaskBtn.className="";
         taskInput.value = '';
     }
-    showTask(); */
-    console.log('update button work!');
+    showTask();
 });
 
 function completeTask(index){
