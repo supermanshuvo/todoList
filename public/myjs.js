@@ -46,10 +46,19 @@ function showTask(){
     workList.innerHTML = data;
 }
 
+function editTask(index){
+    let storage = localStorage.getItem('task');
+    let taskObj = JSON.parse(storage);
+    taskInput.value = taskObj[index]['task_name'];
+    // console.log(taskInput);
+    addTaskBtn.innerText= "Update";
+    
+
+}
+
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    // console.log(taskObj[index]['task_name']+" "+taskObj[index]['completeStatus']);
     if(taskObj[index]['completeStatus'] == true){
         taskObj[index]['completeStatus'] = false;
     }else{
