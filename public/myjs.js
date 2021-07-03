@@ -1,18 +1,19 @@
-let storage = localStorage.getItem('task');
-storage = storage ? storage.split(',') : [];
-function addTask(){
-    let todoInput = document.getElementById('todo').value;
-    let trimInput = todoInput.trim();
+let taskInput = document.getElementById('todo');
+let addTaskBtn = document.getElementById('addTask');
+addTaskBtn.addEventListener("click", function(){
+    addTaskInputValue = taskInput.value;
+    let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
-        alert('Kindly Enter something');
+        alert('Enter something!');
     }else{
-        storage.push(trimInput);
-        localStorage.setItem('task', JSON.stringify(storage));
-        // console.log(JSON.parse(localStorage.getItem('task')));
-        show();
+        let storage = localStorage.getItem('task');
+        if(storage == null){
+            taskObj = [];
+        }else{
+            taskObj = JSON.parse(storage);
+        }
+        taskObj.push({'task_name':trimInput,'completeStatus':false});
+        localStorage.setItem('task',JSON.stringify(taskObj));
+        taskInput.value = '';
     }
-}
-function show(){
-    let li = document.createElement("LI");
-    
-}
+});
