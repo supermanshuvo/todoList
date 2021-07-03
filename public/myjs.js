@@ -9,5 +9,10 @@ function addTask(){
         storage.push(trimInput);
         localStorage.setItem('task', JSON.stringify(storage));
         // console.log(JSON.parse(localStorage.getItem('task')));
+        show();
     }
+}
+function show(){
+    let li = document.createElement("LI");
+    
 }
