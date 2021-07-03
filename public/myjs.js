@@ -39,7 +39,7 @@ function showTask(){
         <th scope="row">${index+1}</th>
         ${taskCompleteValue}
         <td><button type="button" onclick="editTask(${index})" >Edit</button></td>
-        <td><button type="button" onclick="completeTask(${index})" id=${index}>Complete</button></td>
+        <td><button type="button" onclick="completeTask(${index})">Complete</button></td>
         <td><button type="button" onclick="deleteTask(${index})">Delete</button></td>
     </tr>`;
     });
@@ -47,7 +47,10 @@ function showTask(){
 }
 
 function completeTask(index){
-    
+    let storage = localStorage.getItem('task');
+    let taskObj = JSON.parse(storage);
+    // let selectData = taskObj.splice(index,1);
+    console.log(taskObj[index][task_name]+" "+taskObj[index][completeStatus]);
 }
 
 function deleteTask(index){
