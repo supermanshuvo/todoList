@@ -72,10 +72,6 @@ updateTaskBtn.addEventListener("click", function(){
                 localStorage.setItem("task", JSON.stringify(taskObj));
             }
         }
-        /* console.log(shortTimeStore);
-        console.log(trimInput); */
-        /* taskObj.push({'task_name':trimInput,'completeStatus':false});
-        localStorage.setItem('task',JSON.stringify(taskObj)); */
         updateTaskBtn.className='update';
         addTaskBtn.className="";
         taskInput.value = '';
