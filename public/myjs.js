@@ -50,7 +50,9 @@ function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
     // let selectData = taskObj.splice(index,1);
-    console.log(taskObj[index][task_name]+" "+taskObj[index][completeStatus]);
+    // console.log(taskObj[index]['task_name']+" "+taskObj[index]['completeStatus']);
+    taskObj[index]['completeStatus'] = true;
+    console.log(taskObj[index]['task_name']+" "+taskObj[index]['completeStatus']);
 }
 
 function deleteTask(index){
