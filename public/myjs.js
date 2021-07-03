@@ -39,11 +39,15 @@ function showTask(){
         <th scope="row">${index+1}</th>
         ${taskCompleteValue}
         <td><button type="button" onclick="editTask(${index})" >Edit</button></td>
-        <td><button type="button" id=${index}>Complete</button></td>
+        <td><button type="button" onclick="completeTask(${index})" id=${index}>Complete</button></td>
         <td><button type="button" onclick="deleteTask(${index})">Delete</button></td>
     </tr>`;
     });
     workList.innerHTML = data;
+}
+
+function completeTask(index){
+    
 }
 
 function deleteTask(index){
