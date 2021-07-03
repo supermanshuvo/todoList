@@ -38,11 +38,18 @@ function showTask(){
         data+=`<tr>
         <th scope="row">${index+1}</th>
         ${taskCompleteValue}
-        <td><button type="button" onclick="edittask(${index})" >Edit</button></td>
+        <td><button type="button" onclick="editTask(${index})" >Edit</button></td>
         <td><button type="button" id=${index}>Complete</button></td>
-        <td><button type="button" onclick="deleteitem(${index})">Delete</button></td>
+        <td><button type="button" onclick="deleteTask(${index})">Delete</button></td>
     </tr>`;
     });
     workList.innerHTML = data;
-    // console.log(JSON.parse(localStorage.getItem('task')));
+}
+
+function deleteTask(index){
+    let storage = localStorage.getItem('task');
+    let taskObj = JSON.parse(storage);
+    taskObj.splice(index,1);
+    localStorage.setItem('task',JSON.stringify(taskObj));
+    showTask();
 }

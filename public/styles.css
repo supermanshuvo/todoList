@@ -46,3 +46,5 @@ p{
     border: 1px solid #083692;
     ;
 }
+
+.completed{text-decoration: line-through;}
