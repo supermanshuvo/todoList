@@ -49,12 +49,37 @@ function showTask(){
 function editTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
+    let saveIndex = document.getElementById("saveindex");
+    let updateTaskBtn = document.getElementById("update");
+    saveIndex = index;
     taskInput.value = taskObj[index]['task_name'];
-    // console.log(taskInput);
-    addTaskBtn.innerText= "Update";
-    
+    addTaskBtn.style.display="none";
+    updateTaskBtn.className='';
 
 }
+
+
+let updateTaskBtn = document.getElementById('update');
+updateTaskBtn.addEventListener("click", function(){
+    /* addTaskInputValue = taskInput.value;
+    let trimInput = addTaskInputValue.trim();
+    if(trimInput=== '' || trimInput == ' '){
+        alert('Enter something!');
+    }else{
+        let storage = localStorage.getItem('task');
+        if(storage == null){
+            taskObj = [];
+        }else{
+            taskObj = JSON.parse(storage);
+        }
+        if()
+        taskObj.push({'task_name':trimInput,'completeStatus':false});
+        localStorage.setItem('task',JSON.stringify(taskObj));
+        taskInput.value = '';
+    }
+    showTask(); */
+    console.log('update button work!');
+});
 
 function completeTask(index){
     let storage = localStorage.getItem('task');
