@@ -1,3 +1,4 @@
+showTask();
 let taskInput = document.getElementById('todo');
 let addTaskBtn = document.getElementById('addTask');
 addTaskBtn.addEventListener("click", function(){
@@ -16,4 +17,17 @@ addTaskBtn.addEventListener("click", function(){
         localStorage.setItem('task',JSON.stringify(taskObj));
         taskInput.value = '';
     }
+    showTask();
 });
+
+function showTask(){
+    let storage = localStorage.getItem('task');
+    if(storage == null){
+        taskObj = [];
+    }else{
+        taskObj = JSON.parse(storage);
+    }
+    let data = '';
+    
+    // console.log(JSON.parse(localStorage.getItem('task')));
+}
