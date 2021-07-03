@@ -53,3 +53,20 @@ function deleteTask(index){
     localStorage.setItem('task',JSON.stringify(taskObj));
     showTask();
 }
+
+let searchItem = document.getElementById("search");
+searchItem.addEventListener("input", function(){
+    let trList = document.querySelectorAll("tr");
+    Array.from(trList).forEach(function(item){
+        let searchedText = item.getElementsByTagName("td")[0].innerText;
+        let searchTextBoxVal = searchItem.value;
+        let re = new RegExp(searchTextBoxVal, 'gi');
+        if(searchedText.match(re)){
+            item.style.display="table-row";
+        }
+        else{
+            item.style.display="none";
+        }
+    })
+})
+
