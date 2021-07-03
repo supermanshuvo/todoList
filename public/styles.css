@@ -47,4 +47,8 @@ p{
     ;
 }
 
-.completed{text-decoration: line-through;}
+.completed{
+    color: #000000;
+    background-color: #275c12;
+    text-decoration: line-through;
+}

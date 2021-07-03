@@ -49,10 +49,14 @@ function showTask(){
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    // let selectData = taskObj.splice(index,1);
     // console.log(taskObj[index]['task_name']+" "+taskObj[index]['completeStatus']);
-    taskObj[index]['completeStatus'] = true;
-    console.log(taskObj[index]['task_name']+" "+taskObj[index]['completeStatus']);
+    if(taskObj[index]['completeStatus'] == true){
+        taskObj[index]['completeStatus'] = false;
+    }else{
+        taskObj[index]['completeStatus'] = true;
+    }
+    localStorage.setItem("task", JSON.stringify(taskObj));
+    showTask();
 }
 
 function deleteTask(index){
