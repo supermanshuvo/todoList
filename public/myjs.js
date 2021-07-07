@@ -79,6 +79,7 @@ updateTaskBtn.addEventListener("click", function(){
     showTask();
 });
 
+let ask = confirm('Are you sure!');
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
