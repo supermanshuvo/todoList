@@ -79,7 +79,6 @@ updateTaskBtn.addEventListener("click", function(){
     showTask();
 });
 
-let ask = confirm('Are you sure!');
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
@@ -95,8 +94,11 @@ function completeTask(index){
 function deleteTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    taskObj.splice(index,1);
-    localStorage.setItem('task',JSON.stringify(taskObj));
+    let ask = confirm('Do you want to delete Task!');
+    if(ask){
+        taskObj.splice(index,1);
+        localStorage.setItem('task',JSON.stringify(taskObj));
+    }
     showTask();
 }
 
