@@ -1,59 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Icon PNG -->
-    <link rel="shortcut icon" href="/public/image/r.png" type="image/x-icon">
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>To-Do List</title>
-  </head>
-  <body>
-      <!-- Navbar Area Start -->
-    <nav class="navbar navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand">To-Do List</a>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
-          </form>
-        </div>
-      </nav>
-      <!-- Navbar Area End -->
-      <!-- Content Area Start -->
-      <div class="container">
-          <!-- Header Area Start -->
-          <div class="row">
-              <div class="col-*-12 text-center">
-                  <h2>ToDo List</h2>
-              </div>
-          </div>
-          <!-- Header Area End -->
-          <!-- Add Task Area Start -->
-          <div class="row">
-              <div class="col-mb-4">
-                <input type="text" class="form-control" id="todo" placeholder="Enter The Work">
-              </div>
-          </div>
-          <!-- Add Task Area End -->
-      </div>
-      <!-- Content Area End -->
-    <div class="main">
-        <div class="createWork">
-            <button id="addTask" class="btn btn-primary">Add Work</button>
-            <button id="update" class="btn d-none update">Update</button>
-        </div>
-        <div id="paddingWork">
-            <table id="paddingWorkList" class="center"></table>
-        </div>
+  <!-- Icon PNG -->
+  <link rel="shortcut icon" href="/public/image/r.png" type="image/x-icon">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <!-- Navbar Area Start -->
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand">To-Do List</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+      </form>
     </div>
-    <p>To-do List create by <a href="https://www.facebook.com/supermanshuvo" target="_blank">Shuvo The Superman</a> 2021</p>
-    <script src="./myjs.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  </nav>
+  <!-- Navbar Area End -->
+  <!-- Content Area Start -->
+  <div class="container mt-4">
+    <!-- Task Card Area Start -->
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="card text-center pt-2">
+          <div class="card-header">
+            <h2>ToDo List</h2>
+          </div>
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="todo" placeholder="Enter The Work" aria-label="Task to do"
+                aria-describedby="addTask">
+              <button class="btn btn-primary" type="button" id="addTask">Add Work</button>
+              <button type="button" id="update" class="btn d-none update">Update</button>
+            </div>
+            <div id="paddingWork">
+              <table id="paddingWorkList" class="table table-hover"></table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p>To-do List create by <a href="https://www.facebook.com/supermanshuvo" target="_blank">Shuvo The
+                Superman</a> 2021</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Task Card Area End -->
+  </div>
+  <!-- Content Area End -->
+  <script src="./myjs.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
