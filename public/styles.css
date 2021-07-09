@@ -8,30 +8,6 @@ body{
     background-color: #99d6ff;
     min-width: 250px;
 }
-.main{
-    margin: 25px auto;
-    display: block;
-    text-align: center;
-    width: 60%;
-    border: 1px solid #fff;
-    padding: 10px;
-}
-button,input{
-    margin: 6px;
-    padding:6px 12px;
-}
-button{
-    background-color: #008CBA; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
 .completed{
     color: #000000;
     background-color: #275c12;

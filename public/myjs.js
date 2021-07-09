@@ -36,11 +36,11 @@ function showTask(){
             taskCompleteValue = `<td>${item.task_name}</td>`;
         }
         data+=`<tr>
-        <th scope="row">${index+1}</th>
-        ${taskCompleteValue}
-        <td><button type="button" onclick="editTask(${index})" >Edit</button></td>
-        <td><button type="button" onclick="completeTask(${index})">Complete</button></td>
-        <td><button type="button" onclick="deleteTask(${index})">Delete</button></td>
+        <td scope="row">${index+1}</td>
+        <td>${taskCompleteValue}</td>
+        <td><button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
+        <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
+        <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button></td>
     </tr>`;
     });
     workList.innerHTML = data;
