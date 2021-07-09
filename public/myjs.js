@@ -53,7 +53,7 @@ function editTask(index){
     taskInput.value = taskObj[index]['task_name'];
     shortTimeStore = index;
     addTaskBtn.className="addWork";
-    updateTaskBtn.className='';
+    updateTaskBtn.className='btn btn-primary';
 }
 
 
@@ -73,7 +73,7 @@ updateTaskBtn.addEventListener("click", function(){
             }
         }
         updateTaskBtn.className='update';
-        addTaskBtn.className="";
+        addTaskBtn.className="btn btn-primary";
         taskInput.value = '';
     }
     showTask();

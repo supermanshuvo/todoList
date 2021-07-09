@@ -10,7 +10,7 @@ body{
 }
 .completed{
     color: #000000;
-    background-color: #275c12;
+    font-weight: bold;
     text-decoration: line-through;
 }
 .update, .addWork{
