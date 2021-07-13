@@ -117,4 +117,3 @@ searchItem.addEventListener("input", function(){
         }
     })
 })
-
