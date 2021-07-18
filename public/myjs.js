@@ -43,7 +43,12 @@ function showTask(){
         <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button></td>
     </tr>`;
     });
-    workList.innerHTML = data;
+    if(taskObj.length<1){
+        data = 'No Task to do!';
+        workList.innerHTML = data;
+    }else{
+        workList.innerHTML = data;
+    }
 }
 let shortTimeStore;
 function editTask(index){
