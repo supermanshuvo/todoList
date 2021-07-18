@@ -28,7 +28,7 @@ function showTask(){
         taskObj = JSON.parse(storage);
     }
     let data = '';
-    let workList = document.getElementById('paddingWorkList');
+    let workList = document.getElementById('todoLists');
     taskObj.forEach((item,index) => {
         if(item.completeStatus==true){
             taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
