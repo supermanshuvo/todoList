@@ -107,12 +107,36 @@ function deleteTask(index){
     showTask();
 }
 
+
 let searchItem = document.getElementById("search");
+searchItem.addEventListener("input", function(){
+   let searchedText, table, tr, td, textValue, filter;
+   searchedText = searchItem.value;
+   filter = searchedText.toUpperCase();
+   table = document.getElementById('todoLists');
+   tr = table.getElementsByTagName("tr");
+   console.log(searchedText);
+   /* for(let i = 0; i< tr.length;i++){
+       td = tr[i].getElementsByTagName("td")[1];
+       if(td){
+           textValue = td.textContent || td.innerText;
+           if(textValue.toUpperCase().indexOf(filter)> -1){
+            tr[i].style.display = "";
+           }else{
+            tr[i].style.display = "none";
+           }
+       }
+   } */
+});
+
+
+/* let searchItem = document.getElementById("search");
 searchItem.addEventListener("input", function(){
     let trList = document.querySelectorAll("tr");
     Array.from(trList).forEach(function(item){
         let searchedText = item.getElementsByTagName("td")[0].innerText;
         let searchTextBoxVal = searchItem.value;
+        console.dir(trList);
         let re = new RegExp(searchTextBoxVal, 'gi');
         if(searchedText.match(re)){
             item.style.display="table-row";
@@ -121,4 +145,4 @@ searchItem.addEventListener("input", function(){
             item.style.display="none";
         }
     })
-})
+}) */
