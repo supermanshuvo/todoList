@@ -52,7 +52,7 @@ function editTask(index){
     let updateTaskBtn = document.getElementById("update");
     taskInput.value = taskObj[index]['task_name'];
     shortTimeStore = index;
-    addTaskBtn.className="addWork";
+    addTaskBtn.className="d-none";
     updateTaskBtn.className='btn btn-primary';
 }
 
@@ -72,7 +72,7 @@ updateTaskBtn.addEventListener("click", function(){
                 localStorage.setItem("task", JSON.stringify(taskObj));
             }
         }
-        updateTaskBtn.className='update';
+        updateTaskBtn.className='d-none';
         addTaskBtn.className="btn btn-primary";
         taskInput.value = '';
     }
