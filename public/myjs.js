@@ -110,12 +110,7 @@ function deleteTask(index){
 
 let searchItem = document.getElementById("search");
 searchItem.addEventListener("input", function(){
-   let searchedText, table, tr, td, textValue, filter;
-   searchedText = searchItem.value;
-   filter = searchedText.toUpperCase();
-   table = document.getElementById('todoLists');
-   tr = table.getElementsByTagName("tr");
-   console.log(searchedText);
+   
 });
 
 
