@@ -110,7 +110,12 @@ function deleteTask(index){
 
 let searchItem = document.getElementById("search");
 searchItem.addEventListener("input", function(){
-   
+   let filter = searchItem.value.toUpperCase();
+   let table = document.getElementById('todoLists');
+   let tr = table.getElementsByTagName('tr');
+   for(let i=0;i<tr.length;i++){
+       console.log(tr[i]);
+   }
 });
 
 
