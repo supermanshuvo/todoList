@@ -114,24 +114,14 @@ searchItem.addEventListener("input", function(){
    let table = document.getElementById('todoLists');
    let tr = table.getElementsByTagName('tr');
    for(let i=0;i<tr.length;i++){
-       console.log(tr[i]);
+       let td= tr[i].getElementsByTagName('td')[2];
+    if(td){
+        let textValue = td.textContent || td.innerHTML;
+         if(textValue.toUpperCase().indexOf(filter)> -1){
+             tr[i].style.display = ""; 
+         }else{
+            tr[i].style.display = "none";
+         }
+    }
    }
 });
-
-
-/* let searchItem = document.getElementById("search");
-searchItem.addEventListener("input", function(){
-    let trList = document.querySelectorAll("tr");
-    Array.from(trList).forEach(function(item){
-        let searchedText = item.getElementsByTagName("td")[0].innerText;
-        let searchTextBoxVal = searchItem.value;
-        console.dir(trList);
-        let re = new RegExp(searchTextBoxVal, 'gi');
-        if(searchedText.match(re)){
-            item.style.display="table-row";
-        }
-        else{
-            item.style.display="none";
-        }
-    })
-}) */
