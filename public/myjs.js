@@ -36,8 +36,8 @@ function showTask(){
             taskCompleteValue = `<td>${item.task_name}</td>`;
         }
         data+=`<tr>
-        <td scope="row" class="padding">${index+1}</td>
-        <td class="padding">${taskCompleteValue}</td>
+        <td scope="row">${index+1}</td>
+        <td>${taskCompleteValue}</td>
         <td><button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
         <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
         <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button></td>
