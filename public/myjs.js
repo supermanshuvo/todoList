@@ -1,6 +1,6 @@
 showTask();
-let taskInput = document.getElementById('todo');
-let addTaskBtn = document.getElementById('addTask');
+let taskInput = document.getElementById('todo'),
+    addTaskBtn = document.getElementById('addTask');
 addTaskBtn.addEventListener("click", function(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
@@ -36,12 +36,18 @@ function showTask(){
             taskCompleteValue = `<td>${item.task_name}</td>`;
         }
         data+=`<tr>
-        <td scope="row">${index+1}</td>
-        <td>${taskCompleteValue}</td>
-        <td><button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
-        <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
-        <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button></td>
-    </tr>`;
+        <td scope="row">
+          ${index+1}
+        </td>
+        <td>
+          ${taskCompleteValue}
+        </td>
+        <td>
+          <button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
+          <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
+          <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button>
+        </td>
+      </tr>`;
     });
     if(taskObj.length<1){
         data = 'No Task to do!';
