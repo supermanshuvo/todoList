@@ -13,3 +13,6 @@ body{
     font-weight: bold;
     text-decoration: line-through;
 }
+.padding{
+    padding-top: 14px;
+}
