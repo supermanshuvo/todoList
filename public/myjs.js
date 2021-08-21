@@ -1,7 +1,7 @@
 showTask();
 let taskInput = document.getElementById('todo'),
     addTaskBtn = document.getElementById('addTask');
-addTaskBtn.addEventListener("click", function(){
+function createTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
@@ -18,8 +18,7 @@ addTaskBtn.addEventListener("click", function(){
         taskInput.value = '';
     }
     showTask();
-});
-
+}
 // Show Task That input
 function showTask(){
     let storage = localStorage.getItem('task');
@@ -70,7 +69,7 @@ function editTask(index){
 
 
 let updateTaskBtn = document.getElementById('update');
-updateTaskBtn.addEventListener("click", function(){
+function updateTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
@@ -89,8 +88,7 @@ updateTaskBtn.addEventListener("click", function(){
         taskInput.value = '';
     }
     showTask();
-});
-
+}
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
@@ -134,3 +132,5 @@ searchItem.addEventListener("input", function(){
 }); */
 
 // Click Button
+addTaskBtn.addEventListener("click", createTask);
+updateTaskBtn.addEventListener("click", updateTask);
