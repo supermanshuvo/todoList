@@ -3,8 +3,7 @@ showTask();
 // Initialize Variable
 let taskInput = document.getElementById('todo'),
     addTaskBtn = document.getElementById('addTask'),
-    searchInput = document.getElementById('searchInput'),
-    searchItem = document.getElementById("search");
+    searchInput = document.getElementById('searchInput');
 
 // Create Function Task
 function createTask(){
@@ -132,20 +131,17 @@ function searchResult(){
         let td=tr[i].getElementsByTagName('td')[1];
         if(td){
             let textValue = td.textContent || td.innerHTML;
-            try{
-                if(textValue.toUpperCase().indexOf(text)> -1){
-                    tr[i].style.display='';
-                }else{
-                    tr[i].style.display="none";
-                }
-            }catch(e){
-                console.log(e);
+            if(textValue.toUpperCase().indexOf(text)> -1){
+                tr[i].style.display='';
+            }else{
+                tr[i].style.display="none";
             }
         }
-    }   
+    }
+
 }
 
 // Click Button
 addTaskBtn.addEventListener("click", createTask);
 updateTaskBtn.addEventListener("click", updateTask);
-searchItem.addEventListener("click", searchResult);
+searchInput.addEventListener("keyup", searchResult);
