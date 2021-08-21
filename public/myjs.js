@@ -20,6 +20,7 @@ addTaskBtn.addEventListener("click", function(){
     showTask();
 });
 
+// Show Task That input
 function showTask(){
     let storage = localStorage.getItem('task');
     if(storage == null){
@@ -32,20 +33,21 @@ function showTask(){
     taskObj.forEach((item,index) => {
         if(item.completeStatus==true){
             taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})">Not Done</button>`
+
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})">Complete</button>`
         }
         data+=`<tr>
         <td scope="row">
           ${index+1}
         </td>
-        <td>
           ${taskCompleteValue}
-        </td>
         <td>
-          <button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
-          <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
-          <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button>
+          <button type="button" class="btn btn-info btn-sm" onclick="editTask(${index})" >Edit</button>
+          ${taskCompleteBtn}
+          <button type="button" class="btn btn-danger btn-sm" onclick="deleteTask(${index})">Delete</button>
         </td>
       </tr>`;
     });
@@ -131,3 +133,5 @@ searchItem.addEventListener("input", function(){
     }
    }
 });
+
+// Click Button
