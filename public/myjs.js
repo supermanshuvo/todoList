@@ -1,8 +1,12 @@
+// Show Task Run if task is added
 showTask();
+// Initialize Variable
 let taskInput = document.getElementById('todo'),
     addTaskBtn = document.getElementById('addTask'),
     searchInput = document.getElementById('searchInput'),
     searchItem = document.getElementById("search");
+
+// Create Function Task
 function createTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
@@ -21,7 +25,7 @@ function createTask(){
     }
     showTask();
 }
-// Show Task That input
+// Show Task That Input
 function showTask(){
     let storage = localStorage.getItem('task');
     if(storage == null){
@@ -58,6 +62,7 @@ function showTask(){
         workList.innerHTML = data;
     }
 }
+// Edit Task Create Function
 let shortTimeStore;
 function editTask(index){
     let storage = localStorage.getItem('task');
@@ -69,7 +74,7 @@ function editTask(index){
     updateTaskBtn.className='btn btn-primary';
 }
 
-
+// Update Task Function
 let updateTaskBtn = document.getElementById('update');
 function updateTask(){
     addTaskInputValue = taskInput.value;
@@ -91,6 +96,8 @@ function updateTask(){
     }
     showTask();
 }
+
+// Complete or Not Done Task Function
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
@@ -100,9 +107,11 @@ function completeTask(index){
         taskObj[index]['completeStatus'] = true;
     }
     localStorage.setItem("task", JSON.stringify(taskObj));
+    searchInput.value = '';
     showTask();
 }
 
+// Delete Task Function
 function deleteTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
@@ -114,12 +123,26 @@ function deleteTask(index){
     showTask();
 }
 
+// Search Task Function
 function searchResult(){
     let text = searchInput.value.toUpperCase();
     let table = document.getElementById('todoLists');
-
-    // console.log(table);
-    
+    let tr = table.getElementsByTagName('tr');
+    for(let i=0;i<tr.length;i++){
+        let td=tr[i].getElementsByTagName('td')[1];
+        if(td){
+            let textValue = td.textContent || td.innerHTML;
+            try{
+                if(textValue.toUpperCase().indexOf(text)> -1){
+                    tr[i].style.display='';
+                }else{
+                    tr[i].style.display="none";
+                }
+            }catch(e){
+                console.log(e);
+            }
+        }
+    }   
 }
 
 // Click Button
