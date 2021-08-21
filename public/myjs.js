@@ -1,6 +1,8 @@
 showTask();
 let taskInput = document.getElementById('todo'),
-    addTaskBtn = document.getElementById('addTask');
+    addTaskBtn = document.getElementById('addTask'),
+    searchInput = document.getElementById('searchInput'),
+    searchItem = document.getElementById("search");
 function createTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
@@ -112,25 +114,15 @@ function deleteTask(index){
     showTask();
 }
 
+function searchResult(){
+    let text = searchInput.value.toUpperCase();
+    let table = document.getElementById('todoLists');
 
-/* let searchItem = document.getElementById("search");
-searchItem.addEventListener("input", function(){
-   let filter = searchItem.value.toUpperCase();
-   let table = document.getElementById('todoLists');
-   let tr = table.getElementsByTagName('tr');
-   for(let i=0;i<tr.length;i++){
-       let td= tr[i].getElementsByTagName('td')[2];
-    if(td){
-        let textValue = td.textContent || td.innerHTML;
-         if(textValue.toUpperCase().indexOf(filter)> -1){
-             tr[i].style.display = ""; 
-         }else{
-            tr[i].style.display = "none";
-         }
-    }
-   }
-}); */
+    // console.log(table);
+    
+}
 
 // Click Button
 addTaskBtn.addEventListener("click", createTask);
 updateTaskBtn.addEventListener("click", updateTask);
+searchItem.addEventListener("click", searchResult);
