@@ -33,11 +33,10 @@ function showTask(){
     taskObj.forEach((item,index) => {
         if(item.completeStatus==true){
             taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
-            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})">Not Done</button>`
-
+            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})">Not Done</button>`;
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>`;
-            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})">Complete</button>`
+            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})">Complete</button>`;
         }
         data+=`<tr>
         <td scope="row">
@@ -116,7 +115,7 @@ function deleteTask(index){
 }
 
 
-let searchItem = document.getElementById("search");
+/* let searchItem = document.getElementById("search");
 searchItem.addEventListener("input", function(){
    let filter = searchItem.value.toUpperCase();
    let table = document.getElementById('todoLists');
@@ -132,6 +131,6 @@ searchItem.addEventListener("input", function(){
          }
     }
    }
-});
+}); */
 
 // Click Button
