@@ -43,7 +43,18 @@
               <button class="btn btn btn-outline-primary d-none" type="button" id="update">Update Work</button>
             </div>
             <div id="todoListArea">
-              <table id="todoLists" class="table table-hover"></table>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">SL No.</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="todoLists"></tbody>
+              </table>
             </div>
           </div>
           <div class="card-footer">

@@ -49,7 +49,11 @@ function showTask(){
           ${taskCompleteValue}
         <td>
           <button type="button" class="btn btn-info btn-sm" onclick="editTask(${index})" >Edit</button>
+        </td>
+        <td>
           ${taskCompleteBtn}
+        </td>
+        <td>
           <button type="button" class="btn btn-danger btn-sm" onclick="deleteTask(${index})">Delete</button>
         </td>
       </tr>`;
