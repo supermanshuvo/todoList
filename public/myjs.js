@@ -4,6 +4,7 @@ showTask();
 let taskInput = document.getElementById('todo'),
     addTaskBtn = document.getElementById('addTask'),
     searchInput = document.getElementById('searchInput'),
+    cancel = document.getElementById('cancel'),
     hiddenId = document.getElementById('hiddenId');
 
 // Create Function Task
@@ -94,7 +95,7 @@ function updateTask(){
             }
         }
         updateTaskBtn.className='d-none';
-        addTaskBtn.className="btn btn-primary";
+        addTaskBtn.className="btn btn-outline-primary";
         taskInput.value = '';
     }
     hiddenId.value = "";
@@ -120,8 +121,7 @@ function deleteTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
     if(parseInt(hiddenId.value)===parseInt(index)){
-        // console.log(`true hidden id = ${hiddenId.value} index = ${index}`);
-        console.log('Thanks for Clicking')
+        console.log('Thanks for Clicking');
     }else{
         let ask = confirm('Do you want to delete Task!');
         if(ask){
@@ -151,8 +151,16 @@ function searchResult(){
     }
 
 }
-
+// Cancel Task Input and Update 
+function cancelTask(){
+    hiddenId.value = "";
+    updateTaskBtn.className='d-none';
+    addTaskBtn.className="btn btn-outline-primary";
+    taskInput.value = '';
+    console.log('Thanks for Clicking');
+}
 // Click Button
 addTaskBtn.addEventListener("click", createTask);
 updateTaskBtn.addEventListener("click", updateTask);
 searchInput.addEventListener("keyup", searchResult);
+cancel.addEventListener('click',cancelTask);
