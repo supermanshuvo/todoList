@@ -3,7 +3,8 @@ showTask();
 // Initialize Variable
 let taskInput = document.getElementById('todo'),
     addTaskBtn = document.getElementById('addTask'),
-    searchInput = document.getElementById('searchInput');
+    searchInput = document.getElementById('searchInput'),
+    hiddenId = document.getElementById('hiddenId');
 
 // Create Function Task
 function createTask(){
@@ -66,13 +67,12 @@ function showTask(){
     }
 }
 // Edit Task Create Function
-let shortTimeStore;
 function editTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
     let updateTaskBtn = document.getElementById("update");
     taskInput.value = taskObj[index]['task_name'];
-    shortTimeStore = index;
+    hiddenId.value = index;
     addTaskBtn.className="d-none";
     updateTaskBtn.className='btn btn-primary';
 }
@@ -87,9 +87,9 @@ function updateTask(){
     }else{
         let storage = localStorage.getItem('task');
         let taskObj = JSON.parse(storage);
-        for(keys in taskObj[shortTimeStore]){
+        for(keys in taskObj[hiddenId.value]){
             if(keys == 'task_name'){
-                taskObj[shortTimeStore].task_name = trimInput;
+                taskObj[hiddenId.value].task_name = trimInput;
                 localStorage.setItem("task", JSON.stringify(taskObj));
             }
         }
