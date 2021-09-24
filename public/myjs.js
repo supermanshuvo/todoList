@@ -1,7 +1,14 @@
+// Show Task Run if task is added
 showTask();
-let taskInput = document.getElementById('todo');
-let addTaskBtn = document.getElementById('addTask');
-addTaskBtn.addEventListener("click", function(){
+// Initialize Variable
+let taskInput = document.getElementById('todo'),
+    addTaskBtn = document.getElementById('addTask'),
+    searchInput = document.getElementById('searchInput'),
+    cancel = document.getElementById('cancel'),
+    hiddenId = document.getElementById('hiddenId');
+
+// Create Function Task
+function createTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
@@ -18,8 +25,8 @@ addTaskBtn.addEventListener("click", function(){
         taskInput.value = '';
     }
     showTask();
-});
-
+}
+// Show Task That Input
 function showTask(){
     let storage = localStorage.getItem('task');
     if(storage == null){
@@ -32,16 +39,26 @@ function showTask(){
     taskObj.forEach((item,index) => {
         if(item.completeStatus==true){
             taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})">Not Done</button>`;
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})">Complete</button>`;
         }
         data+=`<tr>
-        <td scope="row" class="padding">${index+1}</td>
-        <td class="padding">${taskCompleteValue}</td>
-        <td><button type="button" class="btn btn-info" onclick="editTask(${index})" >Edit</button>
-        <button type="button" class="btn btn-success" onclick="completeTask(${index})">Complete</button>
-        <button type="button" class="btn btn-danger" onclick="deleteTask(${index})">Delete</button></td>
-    </tr>`;
+        <td scope="row">
+          ${index+1}
+        </td>
+          ${taskCompleteValue}
+        <td>
+          <button type="button" class="btn btn-info btn-sm" onclick="editTask(${index})" >Edit</button>
+        </td>
+        <td>
+          ${taskCompleteBtn}
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" onclick="deleteTask(${index})">Delete</button>
+        </td>
+      </tr>`;
     });
     if(taskObj.length<1){
         data = 'No Task to do!';
@@ -50,20 +67,20 @@ function showTask(){
         workList.innerHTML = data;
     }
 }
-let shortTimeStore;
+// Edit Task Create Function
 function editTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
     let updateTaskBtn = document.getElementById("update");
     taskInput.value = taskObj[index]['task_name'];
-    shortTimeStore = index;
+    hiddenId.value = index;
     addTaskBtn.className="d-none";
     updateTaskBtn.className='btn btn-primary';
 }
 
-
+// Update Task Function
 let updateTaskBtn = document.getElementById('update');
-updateTaskBtn.addEventListener("click", function(){
+function updateTask(){
     addTaskInputValue = taskInput.value;
     let trimInput = addTaskInputValue.trim();
     if(trimInput=== '' || trimInput == ' '){
@@ -71,19 +88,21 @@ updateTaskBtn.addEventListener("click", function(){
     }else{
         let storage = localStorage.getItem('task');
         let taskObj = JSON.parse(storage);
-        for(keys in taskObj[shortTimeStore]){
+        for(keys in taskObj[hiddenId.value]){
             if(keys == 'task_name'){
-                taskObj[shortTimeStore].task_name = trimInput;
+                taskObj[hiddenId.value].task_name = trimInput;
                 localStorage.setItem("task", JSON.stringify(taskObj));
             }
         }
         updateTaskBtn.className='d-none';
-        addTaskBtn.className="btn btn-primary";
+        addTaskBtn.className="btn btn-outline-primary";
         taskInput.value = '';
     }
+    hiddenId.value = "";
     showTask();
-});
+}
 
+// Complete or Not Done Task Function
 function completeTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
@@ -93,35 +112,56 @@ function completeTask(index){
         taskObj[index]['completeStatus'] = true;
     }
     localStorage.setItem("task", JSON.stringify(taskObj));
+    searchInput.value = '';
     showTask();
 }
 
+// Delete Task Function
 function deleteTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    let ask = confirm('Do you want to delete Task!');
-    if(ask){
-        taskObj.splice(index,1);
-        localStorage.setItem('task',JSON.stringify(taskObj));
+    if(parseInt(hiddenId.value)===parseInt(index)){
+        console.log('Thanks for Clicking');
+    }else{
+        let ask = confirm('Do you want to delete Task!');
+        if(ask){
+            taskObj.splice(index,1);
+            localStorage.setItem('task',JSON.stringify(taskObj));
+            console.log('Success In your hand');
+        }
     }
     showTask();
 }
 
-
-let searchItem = document.getElementById("search");
-searchItem.addEventListener("input", function(){
-   let filter = searchItem.value.toUpperCase();
-   let table = document.getElementById('todoLists');
-   let tr = table.getElementsByTagName('tr');
-   for(let i=0;i<tr.length;i++){
-       let td= tr[i].getElementsByTagName('td')[2];
-    if(td){
-        let textValue = td.textContent || td.innerHTML;
-         if(textValue.toUpperCase().indexOf(filter)> -1){
-             tr[i].style.display = ""; 
-         }else{
-            tr[i].style.display = "none";
-         }
+// Search Task Function
+function searchResult(){
+    let text = searchInput.value.toUpperCase();
+    let table = document.getElementById('todoLists');
+    let tr = table.getElementsByTagName('tr');
+    for(let i=0;i<tr.length;i++){
+        let td=tr[i].getElementsByTagName('td')[1];
+        if(td){
+            let textValue = td.textContent || td.innerHTML;
+            if(textValue.toUpperCase().indexOf(text)> -1){
+                tr[i].style.display='';
+            }else{
+                tr[i].style.display="none";
+            }
+        }
     }
-   }
-});
+}
+// Cancel Task Input and Update 
+function cancelTask(){
+    hiddenId.value = "";
+    updateTaskBtn.className='d-none';
+    addTaskBtn.className="btn btn-outline-primary";
+    taskInput.value = '';
+    searchInput.value = '';
+    console.log('Thanks for Clicking');
+    showTask();
+}
+// Click Button
+addTaskBtn.addEventListener("click", createTask);
+updateTaskBtn.addEventListener("click", updateTask);
+searchInput.addEventListener("keyup", searchResult);
+cancel.addEventListener('click',cancelTask);
