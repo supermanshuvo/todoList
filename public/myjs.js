@@ -149,7 +149,6 @@ function searchResult(){
             }
         }
     }
-
 }
 // Cancel Task Input and Update 
 function cancelTask(){
@@ -157,7 +156,9 @@ function cancelTask(){
     updateTaskBtn.className='d-none';
     addTaskBtn.className="btn btn-outline-primary";
     taskInput.value = '';
+    searchInput.value = '';
     console.log('Thanks for Clicking');
+    showTask();
 }
 // Click Button
 addTaskBtn.addEventListener("click", createTask);
