@@ -97,6 +97,7 @@ function updateTask(){
         addTaskBtn.className="btn btn-primary";
         taskInput.value = '';
     }
+    hiddenId.value = "";
     showTask();
 }
 
@@ -118,10 +119,16 @@ function completeTask(index){
 function deleteTask(index){
     let storage = localStorage.getItem('task');
     let taskObj = JSON.parse(storage);
-    let ask = confirm('Do you want to delete Task!');
-    if(ask){
-        taskObj.splice(index,1);
-        localStorage.setItem('task',JSON.stringify(taskObj));
+    if(parseInt(hiddenId.value)===parseInt(index)){
+        // console.log(`true hidden id = ${hiddenId.value} index = ${index}`);
+        console.log('Thanks for Clicking')
+    }else{
+        let ask = confirm('Do you want to delete Task!');
+        if(ask){
+            taskObj.splice(index,1);
+            localStorage.setItem('task',JSON.stringify(taskObj));
+            console.log('Success In your hand');
+        }
     }
     showTask();
 }
