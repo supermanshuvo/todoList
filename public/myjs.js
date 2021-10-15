@@ -39,24 +39,21 @@ function showTask(){
     taskObj.forEach((item,index) => {
         if(item.completeStatus==true){
             taskCompleteValue = `<td class="completed">${item.task_name}</td>`;
-            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})">Not Done</button>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-warning btn-sm" onclick="completeTask(${index})"><i class="fa fa-thumbs-down fs-6" ></i></button>`;
         }else{
             taskCompleteValue = `<td>${item.task_name}</td>`;
-            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})">Complete</button>`;
+            taskCompleteBtn = `<button type="button" class="btn btn-success btn-sm" onclick="completeTask(${index})"><i class="fa fa-thumbs-up fs-6" ></i></button>`;
         }
         data+=`<tr>
-        <td scope="row">
-          ${index+1}
-        </td>
           ${taskCompleteValue}
         <td>
-          <button type="button" class="btn btn-info btn-sm" onclick="editTask(${index})" >Edit</button>
+          <button type="button" class="btn btn-info btn-sm" onclick="editTask(${index})" ><i class="fa fa-edit fs-6" ></i></button>
         </td>
         <td>
           ${taskCompleteBtn}
         </td>
         <td>
-          <button type="button" class="btn btn-danger btn-sm" onclick="deleteTask(${index})">Delete</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="deleteTask(${index})"><i class="fa fa-trash fs-6" ></i></button>
         </td>
       </tr>`;
     });
