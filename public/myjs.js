@@ -152,7 +152,7 @@ function searchResult(){
 function cancelTask(){
     hiddenId.value = "";
     updateTaskBtn.className='d-none';
-    addTaskBtn.className="btn btn-outline-primary";
+    addTaskBtn.className="btn btn-primary";
     taskInput.value = '';
     searchInput.value = '';
     console.log('Thanks for Clicking');
