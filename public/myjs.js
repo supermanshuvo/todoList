@@ -136,7 +136,7 @@ function searchResult(){
     let table = document.getElementById('todoLists');
     let tr = table.getElementsByTagName('tr');
     for(let i=0;i<tr.length;i++){
-        let td=tr[i].getElementsByTagName('td')[1];
+        let td=tr[i].getElementsByTagName('td')[0];
         if(td){
             let textValue = td.textContent || td.innerHTML;
             if(textValue.toUpperCase().indexOf(text)> -1){
