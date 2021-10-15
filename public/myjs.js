@@ -92,7 +92,7 @@ function updateTask(){
             }
         }
         updateTaskBtn.className='d-none';
-        addTaskBtn.className="btn btn-outline-primary";
+        addTaskBtn.className="btn btn-primary";
         taskInput.value = '';
     }
     hiddenId.value = "";
