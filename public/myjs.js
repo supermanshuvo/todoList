@@ -131,12 +131,13 @@ function deleteTask(index){
 }
 
 // Search Task Function
+// Search Task Function
 function searchResult(){
     let text = searchInput.value.toUpperCase();
     let table = document.getElementById('todoLists');
     let tr = table.getElementsByTagName('tr');
     for(let i=0;i<tr.length;i++){
-        let td=tr[i].getElementsByTagName('td')[1];
+        let td=tr[i].getElementsByTagName('td')[0];
         if(td){
             let textValue = td.textContent || td.innerHTML;
             if(textValue.toUpperCase().indexOf(text)> -1){
